@@ -1,0 +1,26 @@
+{
+  "Routes": [                               //16.x把ReRoutes更改成了Routes
+    {
+      "DownstreamPathTemplate": "/{everything}",   //下游路由模板
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",                            //下游端口
+          "Port": 1001
+        },
+        {
+          "Host": "localhost",
+          "Port": 1002
+        }
+      ],
+      "UpstreamPathTemplate": "/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //方式  RoundRobin轮询   LeastConnection空闲  NoLoadBalance 不启用
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+
+  }
+}

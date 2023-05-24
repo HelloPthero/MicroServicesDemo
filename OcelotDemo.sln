@@ -5,6 +5,10 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotDemo", "OcelotDemo\OcelotDemo.csproj", "{873E6981-4DF2-4465-89D9-D8E2D5A0561E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test1Api", "Test1Api\Test1Api.csproj", "{A1952F7F-D742-43B8-BCE6-93219D2362D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2Api", "Test2Api\Test2Api.csproj", "{DEA54D83-7D3F-49BA-A511-47DD626DB557}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{873E6981-4DF2-4465-89D9-D8E2D5A0561E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{873E6981-4DF2-4465-89D9-D8E2D5A0561E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{873E6981-4DF2-4465-89D9-D8E2D5A0561E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1952F7F-D742-43B8-BCE6-93219D2362D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1952F7F-D742-43B8-BCE6-93219D2362D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1952F7F-D742-43B8-BCE6-93219D2362D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1952F7F-D742-43B8-BCE6-93219D2362D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA54D83-7D3F-49BA-A511-47DD626DB557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA54D83-7D3F-49BA-A511-47DD626DB557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA54D83-7D3F-49BA-A511-47DD626DB557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA54D83-7D3F-49BA-A511-47DD626DB557}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
