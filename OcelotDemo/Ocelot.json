@@ -1,7 +1,7 @@
 {
   "Routes": [                               //16.x把ReRoutes更改成了Routes
     {
-      "DownstreamPathTemplate": "/{everything}",   //下游路由模板
+      "DownstreamPathTemplate": "/{everything}",   //下游路由模板 实际使用的
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -15,7 +15,7 @@
       ],
       "UpstreamPathTemplate": "/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
-      "LoadBalancerOptions": {
+      "LoadBalancerOptions": {                 //负载均衡相关配置
         "Type": "RoundRobin" //方式  RoundRobin轮询   LeastConnection空闲  NoLoadBalance 不启用
       }
     }
