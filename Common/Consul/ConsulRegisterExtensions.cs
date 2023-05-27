@@ -11,8 +11,9 @@ namespace Common.Consul
 {
     public static class ConsulRegisterExtensions
     {
-        public static IApplicationBuilder RegisterConsul(this IApplicationBuilder app, IConfiguration con,int port) 
-        { 
+        public static IApplicationBuilder RegisterConsul(this IApplicationBuilder app, IConfiguration con) 
+        {
+            var port = int.Parse(con["Port"]);
             var consulIP = con["Consul:ConsulIP"];
             var consulPort = con["Consul:ConsulPort"];
             var consulServiceName = con["Consul:ServiceName"];

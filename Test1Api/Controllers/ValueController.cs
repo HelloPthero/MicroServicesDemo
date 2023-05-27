@@ -18,7 +18,8 @@ namespace Test1Api.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Test1";
+            var port = Request.HttpContext.Connection.RemotePort;
+            return $"Test1 {port}";
         }
     }
 }

@@ -16,7 +16,9 @@ namespace Test2Api.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Test2";
+            var ip = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault();
+            var port = Request.HttpContext.Connection.RemotePort;
+            return $"Test2 {port}";
         }
     }
 }
