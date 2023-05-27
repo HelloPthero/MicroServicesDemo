@@ -8,8 +8,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-var port = 1002;
-builder.WebHost.UseUrls($"http://*:{port}");
+//var port = 1002;
+//builder.WebHost.UseUrls($"http://*:{port}");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,5 +25,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 var con = app.Configuration;
-app.RegisterConsul(con, port);
+app.RegisterConsul(con);
 app.Run();
