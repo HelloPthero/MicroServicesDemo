@@ -3,20 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace OcelotDemo.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class ValueController : ControllerBase
+    [Route("[controller]")]
+    public class ConsulHealthController : ControllerBase
     {
         private readonly ILogger<ValueController> _logger;
 
-        public ValueController(ILogger<ValueController> logger)
+        public ConsulHealthController(ILogger<ValueController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet] 
         public string Get()
         {
-            return "Ocelot";
+            return "1";
         }
     }
 }

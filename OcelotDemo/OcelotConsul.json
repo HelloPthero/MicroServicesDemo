@@ -1,0 +1,43 @@
+{
+  "Routes": [                               //16.x把ReRoutes更改成了Routes
+
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Test2_Service",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/Test2/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ReRoutesCaseSensitive": false
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Test1_Service",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/Test1/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ReRoutesCaseSensitive": false
+    }
+  ],
+  "GlobalConfiguration": {
+     //服务发现配置
+    "ServiceDiscoveryProvider": {
+      //注册中心Consul地址
+      "Host": "localhost",
+      //注册中心Consul端口号
+      "Port": 8500,
+      "Type": "Consul",
+      //以毫秒为单位，告诉Ocelot多久调用一次Consul来更改服务配置。
+      "PollingInterval": 100,
+      //如果你有在Consul上配置key/value，则在这里输入配置key。
+      "ConfigurationKey": "MyService_AB"
+    }
+  }
+}

@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Ocelot" Version="18.0.0" />
+    <PackageReference Include="Ocelot.Provider.Consul" Version="18.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="OcelotConsul.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Ocelot.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
