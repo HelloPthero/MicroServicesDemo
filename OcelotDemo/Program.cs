@@ -1,19 +1,20 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Consul;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Host
-//.ConfigureAppConfiguration((hostingContext, config) =>
-//{
-//    config.AddJsonFile($"Ocelot.json", optional: false, reloadOnChange: true);
-//    //config.AddOcelot((global::Microsoft.AspNetCore.Hosting.IWebHostEnvironment)hostingContext.HostingEnvironment); //12.x版本 要加环境  自动查询所有Ocelot.xx.json
-//})
-//;
+builder.Host
+.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    config.AddJsonFile($"OcelotConsul.json", optional: false, reloadOnChange: true);
+    //config.AddOcelot((global::Microsoft.AspNetCore.Hosting.IWebHostEnvironment)hostingContext.HostingEnvironment); //12.x版本 要加环境  自动查询所有Ocelot.xx.json
+})
+;
 
 
 // Add services to the container.
-builder.Services.AddOcelot();
+builder.Services.AddOcelot().AddConsul();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
