@@ -12,7 +12,25 @@
       "UpstreamPathTemplate": "/Test2/{url}",
       "UpstreamHttpMethod": [ "Get" ],
       "ReRoutesCaseSensitive": false,
-      
+
+      //polly start
+      "FileCacheOptions": {
+        "TtlSeconds": 15 //缓存时间(秒)
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3, //阈值 当转发到下游的服务连续出现的异常次数达到阈值就会触发熔断 必须和DurationOfBreak一起设置
+        "DurationOfBreak": 10000, //熔断持续时间 毫秒
+        "TimeoutValue": 1000 //限定时间内未相应的请求直接超时  (默认90秒)
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [], //客户端白名单 不受限流规则限制
+        "EnableRateLimiting": true, //是否启用限流
+        "Period": "10s", //周期    smhd
+        "PeriodTimespan": 1, //多少秒后重试
+        "Limit": 5 //周期内允许多少个请求             10s内超过1次报错  --API calls quota exceeded! maximum admitted 5 per 10s.
+      }
+      //polly end
+
     },
     {
       "UseServiceDiscovery": true,
@@ -24,7 +42,15 @@
       },
       "UpstreamPathTemplate": "/Test1/{url}",
       "UpstreamHttpMethod": [ "Get" ],
-      "ReRoutesCaseSensitive": false
+      "ReRoutesCaseSensitive": false,
+
+      //验证授权 start
+      "AuthenticationOptions": { //对服务1进行授权验证 服务2不验证用于对照测试
+        "AuthenticationProviderKey": "server1",
+        "AllowedScopes": [ "gatewayScope" ] //ids4中的scope
+      }
+      //验证授权 end
+     
     }
   ],
   "GlobalConfiguration": {
@@ -40,21 +66,6 @@
       //如果你有在Consul上配置key/value，则在这里输入配置key。
       "ConfigurationKey": "MyService_AB"
     },
-    //polly
-    "FileCacheOptions": {
-      "TtlSeconds": 15 //缓存时间(秒)
-    },
-    "QoSOptions": {
-      "ExceptionsAllowedBeforeBreaking": 3, //阈值 当转发到下游的服务连续出现的异常次数达到阈值就会触发熔断 必须和DurationOfBreak一起设置
-      "DurationOfBreak": 10000, //熔断持续时间 毫秒
-      "TimeoutValue": 1000 //限定时间内未相应的请求直接超时  (默认90秒)
-    },
-    "RateLimitOptions": {
-      "ClientWhitelist": [],               //客户端白名单 不受限流规则限制
-      "EnableRateLimiting": true,          //是否启用限流
-      "Period": "1s",                      //周期    smhd
-      "PeriodTimespan": 1,                 //多少秒后重试
-      "Limit": 1                           //周期内允许多少个请求
-    }
+    
   }
 }
