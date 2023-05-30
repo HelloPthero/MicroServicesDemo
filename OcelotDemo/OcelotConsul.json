@@ -32,7 +32,7 @@
       //注册中心Consul地址
       "Host": "localhost",
       //注册中心Consul端口号
-      "Port": 8500,
+      "Port": 8090,
       "Type": "Consul",
       //以毫秒为单位，告诉Ocelot多久调用一次Consul来更改服务配置。
       "PollingInterval": 100,
