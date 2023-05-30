@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.AddJsonFile($"OcelotConsul.json", optional: false, reloadOnChange: true);
+    config.AddJsonFile($"ocelot.json", optional: false, reloadOnChange: true);
     //config.AddOcelot((global::Microsoft.AspNetCore.Hosting.IWebHostEnvironment)hostingContext.HostingEnvironment); //12.x版本 要加环境  自动查询所有Ocelot.xx.json
 });
 

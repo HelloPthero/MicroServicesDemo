@@ -1,5 +1,5 @@
 {
-  "Routes": [                               //16.x把ReRoutes更改成了Routes
+  "Routes": [ //16.x把ReRoutes更改成了Routes
 
     {
       "UseServiceDiscovery": true,
@@ -50,7 +50,7 @@
         "AllowedScopes": [ "gatewayScope" ] //ids4中的scope
       }
       //验证授权 end
-     
+
     }
   ],
   "GlobalConfiguration": {
@@ -65,7 +65,7 @@
       "PollingInterval": 100,
       //如果你有在Consul上配置key/value，则在这里输入配置key。
       "ConfigurationKey": "MyService_AB"
-    },
-    
+    }
+
   }
 }
